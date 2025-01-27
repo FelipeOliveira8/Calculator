@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(26, 26, 26);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+section{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.calculatorMain{
+    width: 30em;
+    height: 30em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    background-color: rgb(39, 39, 39);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.display {
+    width: 85%;
+    height: 5em;
+    padding: 0.5em;
+    margin: auto;
+    margin-top: 1.5em;
+    background-color: rgb(4, 73, 4);
+    border-radius: 0.5em;
+    display: flex;
+    color: white;
+    justify-content: end;
+}
+.display span {
+    font-size: 4em
+}
+.Keys{
+    display: flex;
+    height: 65%;
+    width: 90%;
+    margin: auto;
+}
+.KeysLeft{
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0.5em;
+}
+.KeysRight{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+.key{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 2em;
+    margin: auto;
+    background-color: rgb(161, 161, 161);
+    border-style: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 1.3em;
+}    
+.clear{
+    background-color: rgb(163, 26, 26);
+    color: white;
+}
+.result{
+    background-color: rgb(21, 101, 133);
+    color: white;
+}
