@@ -11,7 +11,8 @@
                 </div>
                 <div class="keys">
                     <div class="keysLeft">
-                        <button class="key" >( )</button>
+                        
+                        <button class="key backspace" value="B"><</button>
                         <button class="key" value="/">÷</button>
                         <button class="key" value="*">x</button>
                         <button class="key" value="7">7</button>
@@ -23,9 +24,9 @@
                         <button class="key" value="1">1</button>
                         <button class="key" value="2">2</button>
                         <button class="key" value="3">3</button>
-                        <button class="key" value=",">,</button>
+                        <button class="key" >( )</button>
                         <button class="key" value="0">0</button>
-                        <button class="key" value=".">.</button>
+                        <button class="key" value=",">,</button>
                     </div>
                     <div class="KeysRight">
                         <button class="key clear" value='C'>C</button>
@@ -41,31 +42,41 @@
     <script>
         const keys = document.querySelectorAll('.Key');
 
+        const maxLength = 12;
+
         let = expression = '0';
 
         keys.forEach((button)=>{
             button.addEventListener('click', () => {
                 const value = button.value;
 
-                if (expression.lenght < 12){
-                    if (value === "=") {
-                        try{
-                            expression = eval (expression);
-                        } catch (e) {
-                            expression = "Error";
-                        }
-                    } else if (value === "C"){
-                        expression = '0';
+                if (value === "=") {
+                    try{
+                        expression = eval (expression);
+                    } catch (e) {
+                        expression = "Error";
+                    }
+                } else if (value === "C"){
+                    expression = '0';
+                } else if (value === "B"){
+                    if (expression.length > 1){
+                        expression = expression.slice(0, -1);
                     } else {
-                        if (expression == 0){
-                            expression = value;
-                        } else {
-                            expression += value;
-                        }
+                        expression = '0';
                     }
                 } else {
-                    alert("Você só pode inserir 12 dígitos!");
+                    if (expression == 0){
+                        expression = value;
+                    } else {
+                        if (expression.length < maxLength){
+                            expression += value;
+                        } else {
+                            alert("Você só pode inserir 12 dígitos!");
+                        }
+                    }
                 }
+
+                
                 document.getElementById('insert').textContent = expression;
             });
         });
