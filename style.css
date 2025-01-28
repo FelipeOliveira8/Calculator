@@ -4,11 +4,13 @@ body{
     background-color: rgb(26, 26, 26);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* Section styling to cover the entire page */
 section{
     width: 100vw;
     height: 100vh;
     display: flex;
 }
+/* Main calculator container */
 .calculatorMain{
     width: 30em;
     height: 30em;
@@ -19,6 +21,7 @@ section{
     background-color: rgb(39, 39, 39);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+/* Display area styling */
 .display {
     width: 85%;
     height: 5em;
@@ -31,20 +34,24 @@ section{
     color: white;
     justify-content: end;
 }
+/* Styling for the font used in the display */
 .display span {
     font-size: 4em;
     font-family: Digital Display tfb;
 }
+/* Import custom font for the display */
 @font-face{
     font-family: Digital Display tfb;
     src: url(font/digital\ display\ tfb.ttf);
 }
+/* Layout for the calculator keys */
 .Keys{
     display: flex;
     height: 65%;
     width: 90%;
     margin: auto;
 }
+/* Grid layout for the left-side calculator keys */
 .KeysLeft{
     width: 75%;
     display: grid;
@@ -52,12 +59,14 @@ section{
     grid-template-rows: repeat(5, 1fr);
     gap: 0.5em;
 }
+/* Layout for the right-side calculator keys (e.g., operators, equals) */
 .keysRight{
     width: 25%;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
 }
+/* General button styling */
 .key{
     width: 2.5em;
     height: 2.5em;
@@ -69,6 +78,7 @@ section{
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     font-size: 1.3em;
 }    
+/* Specific button styles */
 .clear{
     background-color: rgb(163, 26, 26);
     color: white;
