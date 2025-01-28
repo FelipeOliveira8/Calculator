@@ -32,7 +32,12 @@ section{
     justify-content: end;
 }
 .display span {
-    font-size: 4em
+    font-size: 4em;
+    font-family: Digital Display tfb;
+}
+@font-face{
+    font-family: Digital Display tfb;
+    src: url(font/digital\ display\ tfb.ttf);
 }
 .Keys{
     display: flex;
@@ -47,7 +52,7 @@ section{
     grid-template-rows: repeat(5, 1fr);
     gap: 0.5em;
 }
-.KeysRight{
+.keysRight{
     width: 25%;
     display: flex;
     flex-direction: column;
