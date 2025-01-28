@@ -12,26 +12,26 @@
                 <div class="keys">
                     <div class="keysLeft">
                         <button class="key" >( )</button>
-                        <button class="key" valueKey="÷">÷</button>
-                        <button class="key" valueKey="x">x</button>
-                        <button class="key" valueKey="7">7</button>
-                        <button class="key" valueKey="8">8</button>
-                        <button class="key" valueKey="9">9</button>
-                        <button class="key" valueKey="4">4</button>
-                        <button class="key" valueKey="5">5</button>
-                        <button class="key" valueKey="6">6</button>
-                        <button class="key" valueKey="1">1</button>
-                        <button class="key" valueKey="2">2</button>
-                        <button class="key" valueKey="3">3</button>
-                        <button class="key" valueKey=",">,</button>
-                        <button class="key" valueKey="0">0</button>
-                        <button class="key" valueKey=".">.</button>
+                        <button class="key" value="/">÷</button>
+                        <button class="key" value="*">x</button>
+                        <button class="key" value="7">7</button>
+                        <button class="key" value="8">8</button>
+                        <button class="key" value="9">9</button>
+                        <button class="key" value="4">4</button>
+                        <button class="key" value="5">5</button>
+                        <button class="key" value="6">6</button>
+                        <button class="key" value="1">1</button>
+                        <button class="key" value="2">2</button>
+                        <button class="key" value="3">3</button>
+                        <button class="key" value=",">,</button>
+                        <button class="key" value="0">0</button>
+                        <button class="key" value=".">.</button>
                     </div>
                     <div class="KeysRight">
-                        <button class="key clear" id='kc'>C</button>
-                        <button class="key" valueKey='-'>-</button>
-                        <button class="key" valueKey='+'>+</button>
-                        <button class="key result">=</button>
+                        <button class="key clear" value='C'>C</button>
+                        <button class="key" value='-'>-</button>
+                        <button class="key" value='+'>+</button>
+                        <button class="key result" value='='>=</button>
                     </div>
                 </div>
             </div>
@@ -41,11 +41,32 @@
     <script>
         const keys = document.querySelectorAll('.Key');
 
-        keys.forEach((Key)=>{
-            Key.addEventListener('click', () => {
-                const value = Key.getAttribute('valueKey');
-                console.log(value)
-                document.getElementById('insert').textContent = value;
+        let = expression = '0';
+
+        keys.forEach((button)=>{
+            button.addEventListener('click', () => {
+                const value = button.value;
+
+                if (expression.lenght < 12){
+                    if (value === "=") {
+                        try{
+                            expression = eval (expression);
+                        } catch (e) {
+                            expression = "Error";
+                        }
+                    } else if (value === "C"){
+                        expression = '0';
+                    } else {
+                        if (expression == 0){
+                            expression = value;
+                        } else {
+                            expression += value;
+                        }
+                    }
+                } else {
+                    alert("Você só pode inserir 12 dígitos!");
+                }
+                document.getElementById('insert').textContent = expression;
             });
         });
     </script>
